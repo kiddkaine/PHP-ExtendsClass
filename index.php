@@ -29,13 +29,13 @@
 			{
 				function __construct(public $id, public $username, public $password, public $position)
 				{
-					parent::__construct($id, $username, $password); // Обращение к родительскому классу
+					parent::__construct($id, $username, $password); // Обращение к родительскому классу через ключевое слово parent:: (Можно и "Имя класса"::)
 					$this -> position = $position;
 				}
 
 				function DisplayInfo()
 				{
-					parent::DisplayInfo(); // Обращение к родительскому классу
+					parent::DisplayInfo(); // Обращение к родительскому классу через ключевое слово parent:: (Можно и "Имя класса"::)
 					echo "<p>Должность сотрудника: $this->position</p><br>";
 				}
 			}
