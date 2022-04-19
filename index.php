@@ -40,6 +40,11 @@
 				}
 			}
 
+			class Manager
+			{
+				// Пустой класс для проверки
+			}
+
 			echo "<h2>Класс Users</h2><br>";
 			$users = new Users(5507, "UserName123", "0wOnjNSB6ZC6"); // Инициализируем переменные в конструкторе Users
 			$users -> DisplayInfo();
@@ -47,6 +52,14 @@
 			echo "<h2>Класс Employees</h2><br>";
 			$employees = new Employees(8900, "NickName321", "XUbehjPvMf98", "Полицейский"); // Инициализируем переменные в конструкторе Employees
 			$employees -> DisplayInfo();
+
+			echo "<h2>Оператор instanceof</h2><br>";
+
+			if ($employees instanceof Manager) echo "<p>Объект employees представляет класс Manager</p>"; // Проверка на принадлежность объекта employees классу Manager
+			else echo "<p>Объект employees НЕ представляет класс Manager<p>";
+
+			if ($employees instanceof Users) echo "<p>Объект employees представляет класс Users</p>"; // Проверка на принадлежность объекта employees классу Users
+			else echo "<p>Объект employees НЕ представляет класс Users<p>";
 		?>
 	</body>
 </html>
