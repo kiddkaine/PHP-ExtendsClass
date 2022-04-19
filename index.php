@@ -21,8 +21,7 @@
 				}
 				function DisplayInfo()
 				{
-					echo "<b>Класс People</b><br>";
-					echo "Логин пользователя: $this->name<br>";
+					echo "Имя пользователя: $this->name<br>";
 				}
 			}
 
@@ -30,14 +29,13 @@
 			{
 				function __construct(public $name, public $position)
 				{
-					$this -> name = $name;
+					parent::__construct($name);
 					$this -> position = $position;
 				}
 
 				function DisplayInfo()
 				{
-					echo "<b>Класс Employee</b><br>";
-					echo "Имя пользователя: $this->name<br>";
+					parent::DisplayInfo();
 					echo "Должность сотрудника: $this->position<br>";
 				}
 			}
