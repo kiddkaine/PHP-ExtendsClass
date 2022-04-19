@@ -8,16 +8,16 @@
 	</head>
 	<body align="center">
 		<?php
-			class Users
+			class Users // Создаём класс
 			{
-				function __construct(public $id, public $username, public $password) // Объявляем конструктор
+				function __construct(public $id, public $username, public $password) // Объявляем конструктор и свойства
 				{
 					$this -> id = $id;
 					$this -> username = $username;
 					$this -> password = $password;
 				}
 
-				final function DisplayInfo() // Создаём метод вывода информации и устанавливаем запрет на наследование (ключевое слово final)
+				final function DisplayInfo() // Создаём метод вывода информации и устанавливаем запрет на наследование (модификатор final)
 				{
 					echo "<p>ID пользователя: $this->id</p><br>";
 					echo "<p>Логин пользователя: $this->username</p><br>";
@@ -25,7 +25,7 @@
 				}
 			}
 
-			final class Employees extends Users // Наследование класса Employees от Users (наследовать класс Employees запрещено)
+			final class Employees extends Users // Наследование класса Employees от Users (унаследовать функционал класса Employees запрещено)
 			{
 				function __construct(public $id, public $username, public $password, public $position)
 				{
@@ -33,7 +33,7 @@
 					$this -> position = $position;
 				}
 
-				function DisplayEmployeeInfo() // Создаём новый метод
+				function DisplayEmployeeInfo() // Создаём новый метод т.к. метод в родительском классе с модификатором final
 				{
 					parent::DisplayInfo(); // Обращение к родительскому классу через ключевое слово parent:: (Можно и "Имя класса"::)
 					echo "<p>Должность сотрудника: $this->position</p><br>";
