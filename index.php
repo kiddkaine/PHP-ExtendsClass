@@ -10,14 +10,14 @@
 		<?php
 			class Users
 			{
-				function __construct(public $id, public $username, public $password)
+				function __construct(public $id, public $username, public $password) // Объявляем конструктор
 				{
 					$this -> id = $id;
 					$this -> username = $username;
 					$this -> password = $password;
 				}
 
-				function DisplayInfo()
+				function DisplayInfo() // Создаём метод вывода информации
 				{
 					echo "<p>ID пользователя: $this->id</p><br>";
 					echo "<p>Логин пользователя: $this->username</p><br>";
@@ -25,27 +25,27 @@
 				}
 			}
 
-			class Employees extends Users
+			class Employees extends Users // Наследование класса Employees от Users
 			{
 				function __construct(public $id, public $username, public $password, public $position)
 				{
-					parent::__construct($id, $username, $password);
+					parent::__construct($id, $username, $password); // Обращение к родительскому классу
 					$this -> position = $position;
 				}
 
 				function DisplayInfo()
 				{
-					parent::DisplayInfo();
+					parent::DisplayInfo(); // Обращение к родительскому классу
 					echo "<p>Должность сотрудника: $this->position</p><br>";
 				}
 			}
 
 			echo "<h2>Класс Users</h2><br>";
-			$users = new Users(5507, "UserName123", "0wOnjNSB6ZC6");
+			$users = new Users(5507, "UserName123", "0wOnjNSB6ZC6"); // Инициализируем переменные в конструкторе Users
 			$users -> DisplayInfo();
 
 			echo "<h2>Класс Employees</h2><br>";
-			$employees = new Employees(8900, "NickName321", "XUbehjPvMf98", "Полицейский");
+			$employees = new Employees(8900, "NickName321", "XUbehjPvMf98", "Полицейский"); // Инициализируем переменные в конструкторе Employees
 			$employees -> DisplayInfo();
 		?>
 	</body>
