@@ -17,7 +17,7 @@
 					$this -> password = $password;
 				}
 
-				function DisplayInfo() // Создаём метод вывода информации
+				final function DisplayInfo() // Создаём метод вывода информации и устанавливаем запрет на наследование (ключевое слово final)
 				{
 					echo "<p>ID пользователя: $this->id</p><br>";
 					echo "<p>Логин пользователя: $this->username</p><br>";
@@ -25,7 +25,7 @@
 				}
 			}
 
-			class Employees extends Users // Наследование класса Employees от Users
+			final class Employees extends Users // Наследование класса Employees от Users (наследовать класс Employees запрещено)
 			{
 				function __construct(public $id, public $username, public $password, public $position)
 				{
@@ -33,14 +33,14 @@
 					$this -> position = $position;
 				}
 
-				function DisplayInfo()
+				function DisplayEmployeeInfo() // Создаём новый метод
 				{
 					parent::DisplayInfo(); // Обращение к родительскому классу через ключевое слово parent:: (Можно и "Имя класса"::)
 					echo "<p>Должность сотрудника: $this->position</p><br>";
 				}
 			}
 
-			class Manager
+			final class Manager
 			{
 				// Пустой класс для проверки
 			}
@@ -51,7 +51,7 @@
 
 			echo "<h2>Класс Employees</h2><br>";
 			$employees = new Employees(8900, "NickName321", "XUbehjPvMf98", "Полицейский"); // Инициализируем переменные в конструкторе Employees
-			$employees -> DisplayInfo();
+			$employees -> DisplayEmployeeInfo();
 
 			echo "<h2>Оператор instanceof</h2><br>";
 
