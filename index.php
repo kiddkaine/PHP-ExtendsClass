@@ -8,46 +8,45 @@
 	</head>
 	<body align="center">
 		<?php
-			class People
+			class Users
 			{
-				function __construct(public $name)
+				function __construct(public $id, public $username, public $password)
 				{
-					$this -> name = $name;
+					$this -> id = $id;
+					$this -> username = $username;
+					$this -> password = $password;
 				}
 
-				function __destruct()
-				{
-					echo "<i>Вызывается деструктор...</i><br>";
-				}
 				function DisplayInfo()
 				{
-					echo "Имя пользователя: $this->name<br>";
+					echo "<p>ID пользователя: $this->id</p><br>";
+					echo "<p>Логин пользователя: $this->username</p><br>";
+					echo "<p>Пароль пользователя: $this->password</p><br>";
 				}
 			}
 
-			class Employee extends People
+			class Employees extends Users
 			{
-				function __construct(public $name, public $position)
+				function __construct(public $id, public $username, public $password, public $position)
 				{
-					parent::__construct($name);
+					parent::__construct($id, $username, $password);
 					$this -> position = $position;
 				}
 
 				function DisplayInfo()
 				{
 					parent::DisplayInfo();
-					echo "Должность сотрудника: $this->position<br>";
+					echo "<p>Должность сотрудника: $this->position</p><br>";
 				}
 			}
 
-			$people = new People("@UserName");
-			$employee = new Employee("Иван Иванов", "Пожарник");
+			echo "<h2>Класс Users</h2><br>";
+			$users = new Users(5507, "UserName123", "0wOnjNSB6ZC6");
+			$users -> DisplayInfo();
 
-			$people -> DisplayInfo();
-			echo "<br>";
-
-			$employee -> DisplayInfo();
-			echo "<br>";
+			echo "<h2>Класс Employees</h2><br>";
+			$employees = new Employees(8900, "NickName321", "XUbehjPvMf98", "Полицейский");
+			$employees -> DisplayInfo();
 		?>
 	</body>
 </html>
